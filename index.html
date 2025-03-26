@@ -1,101 +1,447 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProXtyle - Modern CSS Framework</title>
-    
-    <!-- Bootstrap CDN -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    
-    <!-- ProXtyle CDN -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ProgrammerKR/ProXtyle@latest/dist/proxtyle.min.css">
-    
-    <!-- Custom CSS (Optional) -->
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .hero {
-            text-align: center;
-            padding: 80px 20px;
-            background: linear-gradient(135deg, #007bff, #6610f2);
-            color: white;
-        }
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-        .hero p {
-            font-size: 1.2rem;
-        }
-        .features {
-            padding: 60px 20px;
-        }
-        .footer {
-            background: #222;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <title>chota - A micro CSS framework</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/chota">
+  <!-- for dev -->
+  <!-- <link rel="stylesheet" href="./dist/chota.css"> -->
+  <link rel="stylesheet" href="./doc-styles.css">
+  <link rel="icon" type="image/png" href="favicon.png" />
 </head>
-<body>
 
-    <!-- ✅ Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">ProXtyle</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Docs</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Components</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Examples</a></li>
-                    <li class="nav-item"><a class="nav-link btn btn-primary text-white px-3" href="#">Get Started</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<body id="top">
+  <div class="container">
+    <div class="hero is-full-screen">
+      <div class="logo is-center is-vertical-align">
+        <img src="./logo.svg" alt="">
+        <h3>A <strong>micro</strong> (~3kb) CSS framework.</h3>
+        <small><em>FWIW, "choṭā" means "small" in Hindi</em></small>
+      </div>
+      <nav class="tabs is-center">
+        <a href="#features">features</a>
+        <a href="#start">start</a>
+        <a href="#docs">docs</a>
+        <a href="https://github.com/jenil/chota">GitHub</a>
+        <a href="javascript:void(0)" id="theme-switch" onclick="switchMode(this)">☀️</a>
+      </nav>
+    </div>
 
-    <!-- ✅ Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>ProXtyle - The Future of CSS</h1>
-            <p>A powerful and lightweight CSS framework for modern web design.</p>
-            <a href="#" class="btn btn-light btn-lg">Get Started</a>
-        </div>
+    <section id="features">
+      <h2>Features</h2>
+      <ul>
+        <li>⚡️&nbsp; Super light-weight. Just ~3kb (minified + gzipped).</li>
+        <li>⛔️&nbsp; No preprocessor, just plug-n-play</li>
+        <li>📐&nbsp; Magical 12 column <a href="#grid">grid</a></li>
+        <li>🌈&nbsp; Easy to <a href="#customizing">extend</a> with CSS variables</li>
+        <li>🎲&nbsp; Comes with a handful of <a href="#components">components</a> &amp; <a href="#utilities">utilities</a></li>
+        <li>✅&nbsp; Good Semantics</li>
+        <li>🌙&nbsp; Easy dark mode switch</li>
+        <li>🤡&nbsp; Supports <a href="#icons">icons</a> out-of-the-box</li>
+      </ul>
     </section>
 
-    <!-- ✅ Features Section -->
-    <section class="features container text-center">
-        <div class="row">
-            <div class="col-md-4">
-                <h3>🎨 Modern Design</h3>
-                <p>ProXtyle provides a clean and modern UI for your projects.</p>
-            </div>
-            <div class="col-md-4">
-                <h3>⚡ Lightweight</h3>
-                <p>Minimal CSS for maximum performance and speed.</p>
-            </div>
-            <div class="col-md-4">
-                <h3>🔗 Easy Integration</h3>
-                <p>Simply include one CSS file and start using it immediately.</p>
-            </div>
-        </div>
+    <section id="start">
+      <h2>Getting Started</h2>
+      <p>All you need is 1 CSS file, <code>chota.css</code> to be included in your webpage.</p>
+      <br>
+      <p>Link this CSS in your HTML:</p>
+      <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://unpkg.com/chota@latest"</span><span class="nt">&gt;</span></code></pre></figure>
+      <br>
+      <p>You can get the latest release from GitHub</p>
+      <p><a href="https://github.com/jenil/chota/archive/master.zip" class="button outline primary">Download .zip</a></p>
+      <br>
+      <p>Install it from <code>npm</code> or <code>yarn</code></p>
+      <figure class="highlight"><pre><code class="language-bash" data-lang="bash">npm <span class="nb">install </span>chota</code></pre></figure>
     </section>
 
-    <!-- ✅ Footer -->
-    <footer class="footer">
-        <p>&copy; 2025 ProXtyle. Built with ❤️ by ProgrammerKR.</p>
-    </footer>
+    <section id="docs">
+      <header class="row">
+        <div class="col is-vertical-align">
+          <h2 class="is-marginless">Docs</h2>
+        </div>
+        <div class="col is-right">
+          <nav class="tabs">
+            <a href="#customizing">customizing</a>
+            <a href="#components">components</a>
+          </nav>
+        </div>
+      </header>
+      <br>
+      <p>
+        Chota is <em>dead</em> simple to use. It doesn't require learning a lot of class names like other frameworks. It applies a few basic styles to the HTML following the <a href="https://www.w3schools.com/html/html5_semantic_elements.asp" target="_blank">HTML Semantics</a>.
+      </p>
+      <p>Here is a <a href="https://raw.githack.com/jenil/chota/main/test/index.html">demo</a> of the basic HTML elements. A few addons that Chota provides out-of-the-box for some elements are:</p>
+      <ul>
+        <li><a href="https://raw.githack.com/jenil/chota/main/test/index.html#text__tables">Striped tabled</a></li>
+        <li><a href="https://raw.githack.com/jenil/chota/main/test/index.html#forms__input">Input states</a></li>
+        <li><a href="https://raw.githack.com/jenil/chota/main/test/index.html#forms__input">Horizontal input alignment</a> by just wrapping them with <code>grouped</code> class</li>
+        <li><a href="#icons">Icons</a></li>
+      </ul>
+      <br>
+      <h3 id="customizing">Customizing</h3>
+      <p>Chota comes with a basic set of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables" target="_blank">CSS variables</a>:</p>
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nd">:root</span> <span class="p">{</span>
+  <span class="py">--bg-color</span><span class="p">:</span> <span class="m">#ffffff</span><span class="p">;</span>
+  <span class="py">--bg-secondary-color</span><span class="p">:</span> <span class="m">#f3f3f6</span><span class="p">;</span>
+  <span class="py">--color-primary</span><span class="p">:</span> <span class="m">#14854F</span><span class="p">;</span>
+  <span class="py">--color-lightGrey</span><span class="p">:</span> <span class="m">#d2d6dd</span><span class="p">;</span>
+  <span class="py">--color-grey</span><span class="p">:</span> <span class="m">#747681</span><span class="p">;</span>
+  <span class="py">--color-darkGrey</span><span class="p">:</span> <span class="m">#3f4144</span><span class="p">;</span>
+  <span class="py">--color-error</span><span class="p">:</span> <span class="m">#d43939</span><span class="p">;</span>
+  <span class="py">--color-success</span><span class="p">:</span> <span class="m">#28bd14</span><span class="p">;</span>
+  <span class="py">--grid-maxWidth</span><span class="p">:</span> <span class="m">120rem</span><span class="p">;</span>
+  <span class="py">--grid-gutter</span><span class="p">:</span> <span class="m">2rem</span><span class="p">;</span>
+  <span class="py">--font-size</span><span class="p">:</span> <span class="m">1.6rem</span><span class="p">;</span>
+  <span class="py">--font-color</span><span class="p">:</span> <span class="m">#333333</span><span class="p">;</span>
+  <span class="py">--font-family-sans</span><span class="p">:</span> <span class="nb">sans-serif</span><span class="p">;</span>
+  <span class="py">--font-family-mono</span><span class="p">:</span> <span class="n">monaco</span><span class="p">,</span> <span class="s1">"Consolas"</span><span class="p">,</span> <span class="s1">"Lucida Console"</span><span class="p">,</span> <span class="nb">monospace</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+    <br>
+    <p>To override the variables, just add them to your <code>:root</code> selector after importing <code>chota.css</code></p>
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="k">@import</span> <span class="sx">url(chota.css)</span>
 
-    <!-- Bootstrap JS (for navbar toggling) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<span class="p">:</span><span class="n">root</span> <span class="p">{</span>
+  <span class="py">--color-primary</span><span class="p">:</span> <span class="m">#da1d50</span><span class="p">;</span> <span class="c">/* brand color */</span>
+  <span class="py">--grid-maxWidth</span><span class="p">:</span> <span class="m">108rem</span><span class="p">;</span> <span class="c">/* max container width 1080px */</span>
+<span class="p">}</span>
 
-</body>
-                </html>
+<span class="c">/* Other styles..... */</span></code></pre></figure>
+<br>
+<p>Addtionally, you can add dark mode to your site, to support devices that prefer dark mode.</p>
+<figure class="highlight"><pre><code class="language-html" data-lang="html">  <span class="nt">&lt;style&gt;</span>
+    <span class="nt">body</span><span class="nc">.dark</span> <span class="p">{</span>
+      <span class="py">--bg-color</span><span class="p">:</span> <span class="m">#000</span><span class="p">;</span>
+      <span class="py">--bg-secondary-color</span><span class="p">:</span> <span class="m">#131316</span><span class="p">;</span>
+      <span class="py">--font-color</span><span class="p">:</span> <span class="m">#f5f5f5</span><span class="p">;</span>
+      <span class="py">--color-grey</span><span class="p">:</span> <span class="m">#ccc</span><span class="p">;</span>
+      <span class="py">--color-darkGrey</span><span class="p">:</span> <span class="m">#777</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="nt">&lt;/style&gt;</span>
+  <span class="nt">&lt;script&gt;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">matchMedia</span> <span class="o">&amp;&amp;</span>
+        <span class="nb">window</span><span class="p">.</span><span class="nx">matchMedia</span><span class="p">(</span><span class="dl">'</span><span class="s1">(prefers-color-scheme: dark)</span><span class="dl">'</span><span class="p">).</span><span class="nx">matches</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="dl">'</span><span class="s1">dark</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="nt">&lt;/script&gt;</span></code></pre></figure>
+    </section>
+    <section id="components">
+      <div class="row">
+        <div class="col is-vertical-align">
+          <h2 class="is-marginless">Components</h2>
+        </div>
+        <div class="col is-right">
+          <nav class="tabs">
+            <a href="#grid">grid</a>
+            <a href="#buttons">buttons</a>
+            <a href="#nav">nav</a>
+            <a href="#card">card</a>
+            <a href="#tag">tag</a>
+            <a href="#utilities">utilities</a>
+          </nav>
+        </div>
+      </div>
+      <section id="grid">
+  <h4>Grid</h4>
+  <p>The grid system is a fluid system with a max width of 120rem (1200px), that shrinks with the viewport. The max
+    width can be controlled by changing the <code>--grid-maxWidth</code> in the <code>:root</code>.</p>
+  <p>Much like other frameworks, wrap your content in a <code>.container</code> to center it on the page.</p>
+  <br>
+  <h5>Flexible grid</h5>
+  <p>A simple way to build flexible responsive columns:</p>
+  <ul>
+    <li>Add a <code>.row</code> container</li>
+    <li>Add as many <code>.col</code> elements as you want</li>
+  </ul>
+  <p>Each column will have an <strong>equal width</strong>, in a row. There is no restriction on number of columns, but
+    it is recommended <strong>not</strong> to add more than 12 columns in a row.</p>
+  <div class="row">
+    <div class="col">
+      <div class="card is-center">.col</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="card is-center">.col</div>
+    </div>
+    <div class="col">
+      <div class="card is-center">.col</div>
+    </div>
+    <div class="col">
+      <div class="card is-center">.col</div>
+    </div>
+  </div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span> .col <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span> .col <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span> .col <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span> .col <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+  <hr>
+  <h5>Sized</h5>
+  <p>You can also specify the size of the columns</p>
+  <ul>
+    <li>Add a <code>.row</code> container</li>
+    <li>Add a <code>.col-n</code> child where <strong>n</strong> can be from 1 to 12</li>
+  </ul>
+  <p>Each column class is named after how many columns you want out of 12. So if you want 4 columns out of 12, use
+    <code>.col-4</code>.</p>
+  <div class="row">
+    <div class="col-1">
+      <div class="card is-center">.col-1</div>
+    </div>
+    <div class="col-1">
+      <div class="card is-center">.col-1</div>
+    </div>
+    <div class="col-1">
+      <div class="card is-center">.col-1</div>
+    </div>
+    <div class="col-1">
+      <div class="card is-center">.col-1</div>
+    </div>
+    <div class="col-1">
+      <div class="card is-center">.col-1</div>
+    </div>
+    <div class="col-1">
+      <div class="card is-center">.col-1</div>
+    </div>
+    <div class="col-1">
+      <div class="card is-center">.col-1</div>
+    </div>
+    <div class="col-1">
+      <div class="card is-center">.col-1</div>
+    </div>
+    <div class="col-1">
+      <div class="card is-center">.col-1</div>
+    </div>
+    <div class="col-1">
+      <div class="card is-center">.col-1</div>
+    </div>
+    <div class="col-1">
+      <div class="card is-center">.col-1</div>
+    </div>
+    <div class="col-1">
+      <div class="card is-center">.col-1</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <div class="card is-center">.col-4</div>
+    </div>
+    <div class="col-4">
+      <div class="card is-center">.col-4</div>
+    </div>
+    <div class="col-4">
+      <div class="card is-center">.col-4</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="card is-center">.col-12</div>
+    </div>
+  </div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-1"</span><span class="nt">&gt;</span> .col-1 <span class="nt">&lt;/div&gt;</span>
+  <span class="c">&lt;!-- repeat 11 times --&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-4"</span><span class="nt">&gt;</span> .col-4 <span class="nt">&lt;/div&gt;</span>
+  <span class="c">&lt;!-- repeat twice --&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-12"</span><span class="nt">&gt;</span> .col-12 <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+<hr>
+<h5><span class="tag is-small">New</span> Responsive grids:</h5>
+<p>We now have responsive grids that work based on device width.</p>
+<ul>
+  <li>All columns are 100% for device width &lt; 600px</li>
+  <li><code>.col</code> and <code>.col-N</code> for all device sizes &gt;= 600px</li>
+  <li><code>.col-N-md</code> for &gt;= 900px sizes</li>
+  <li><code>.col-N-lg</code> for &gt;= 1200px sizes</li>
+</ul>
+<div class="row">
+  <div class="col-12 col-6-md col-4-lg">
+    <div class="card is-center">.col-12.col-6-md.col-4-lg</div>
+  </div>
+  <div class="col-6 col-3-md col-4-lg">
+    <div class="card is-center">.col-6.col-3-md.col-4-lg</div>
+  </div>
+  <div class="col-6 col-3-md col-4-lg">
+    <div class="card is-center">.col-6.col-3-md.col-4-lg</div>
+  </div>
+</div>
+<div class="row">
+  <div class="col col-6-lg">
+    <div class="card is-center">.col.col-6-lg</div>
+  </div>
+  <div class="col col-3-lg">
+    <div class="card is-center">.col.col-3-lg</div>
+  </div>
+  <div class="col col-3-lg">
+    <div class="card is-center">.col.col-3-lg</div>
+  </div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-12 col-6-md col-4-lg"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card is-center"</span><span class="nt">&gt;</span>.col-12.col-6-md.col-4-lg<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-6 col-3-md col-4-lg"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card is-center"</span><span class="nt">&gt;</span>.col-6.col-3-md.col-4-lg<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-6 col-3-md col-4-lg"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card is-center"</span><span class="nt">&gt;</span>.col-6.col-3-md.col-4-lg<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col col-6-lg"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card is-center"</span><span class="nt">&gt;</span>.col.col-6-lg<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col col-3-lg"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card is-center"</span><span class="nt">&gt;</span>.col.col-3-lg<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col col-3-lg"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card is-center"</span><span class="nt">&gt;</span>.col.col-3-lg<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+  <hr>
+  <h5>Mix-n-Match</h5>
+  <p>You can use a combination of <strong>flexible</strong> and <strong>sized</strong> columns.</p>
+  <p>When using a combination, the sized width column takes the size specified and the remaining is filled in by the
+    flexible column.</p>
+  <div class="row">
+    <div class="col-2">
+      <div class="card is-center">.col-2</div>
+    </div>
+    <div class="col-2">
+      <div class="card is-center">.col-2</div>
+    </div>
+    <div class="col">
+      <div class="card is-center">auto</div>
+    </div>
+    <div class="col-3">
+      <div class="card is-center">.col-3</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-10">
+      <div class="card is-center">.col-10</div>
+    </div>
+    <div class="col">
+      <div class="card is-center">auto</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="card is-center">auto</div>
+    <div class="card is-center">auto</div>
+    </div>
+    <div class="is-full-width"></div>
+    <div class="col">
+      <div class="card is-center">auto</div>
+    </div>
+    <div class="col">
+      <div class="card is-center">auto</div>
+    </div>
+  </div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-2"</span><span class="nt">&gt;</span> .col-2 <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-2"</span><span class="nt">&gt;</span> .col-2 <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span> auto <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-3"</span><span class="nt">&gt;</span> .col-3 <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-10"</span><span class="nt">&gt;</span> .col-10 <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span> auto <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span> auto <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span> auto <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"is-full-width"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span> auto <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span> auto <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+  <p><strong>Pro tip:</strong> Create equal-width columns that span multiple rows by inserting a
+    <code>.is-full-width</code> where you want the columns to break to a new line. Here <code>.is-full-width</code> is
+    one of the <a href="#utilities">utility</a> class.</p>
+
+  <hr>
+  <h5>Reverse Direction</h5>
+  <p>Add <code>.reverse</code> to the <code>.row</code> to reverse the column direction. </p>
+  <div class="row reverse">
+    <div class="col-6">
+      <div class="card is-center">.col-6</div>
+    </div>
+    <div class="col-3">
+      <div class="card is-center">.col-3</div>
+    </div>
+    <div class="col-3">
+      <div class="card is-center">.col-3</div>
+    </div>
+  </div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row reverse"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-6"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card is-center"</span><span class="nt">&gt;</span>.col-6<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-3"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card is-center"</span><span class="nt">&gt;</span>.col-3<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-3"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card is-center"</span><span class="nt">&gt;</span>.col-3<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+</section>
+      <br>
+      <section id="buttons">
+  <h4>Buttons</h4>
+  <p>chota includes five predefined button styles, each serving its own semantic purpose. It also applies these styles to <code>input, button</code> elements, see the complete <a href="https://rawgit.com/jenil/chota/main/test/index.html#forms__action" target="_blank">demo</a>.</p>
+  <div class="row">
+    <div class="col-4">
+      <div class="buttons">
+        <a href="#!" class="button">Default</a>
+        <a href="#!" class="button primary">Primary</a>
+        <a href="#!" class="button secondary">Secondary</a>
+        <a href="#!" class="button dark">Dark</a>
+        <a href="#!" class="button error">Error</a>
+        <a href="#!" class="button success">Success</a>
+        <a href="#!" class="button outline">Outline</a>
+        <a href="#!" class="button outline primary">Primary outline</a>
+        <a href="#!" class="button outline secondary">Secondary outline</a>
+        <a href="#!" class="button outline dark">Dark outline</a>
+        <a href="#!" class="button clear">Clear</a>
+        <button type="button" class="button primary icon">New file 
+          <img src="https://icongr.am/feather/file.svg?size=16&amp;color=ffffff" alt="icon">
+        </button>
+        <button class="button icon-only">
+          <img src="https://icongr.am/feather/search.svg?size=24">
+        </button>
+      </div>
+    </div>
+    <div class="col">
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"button"</span><span class="nt">&gt;</span>Default<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"button primary"</span><span class="nt">&gt;</span>Primary<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"button secondary"</span><span class="nt">&gt;</span>Secondary<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"button dark"</span><span class="nt">&gt;</span>Dark<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"button error"</span><span class="nt">&gt;</span>Error<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"button success"</span><span class="nt">&gt;</span>Success<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"button outline"</span><span class="nt">&gt;</span>Outline<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"button outline primary"</span><span class="nt">&gt;</span>Primary outline<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"button outline secondary"</span><span class="nt">&gt;</span>Secondary outline<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"button outline dark"</span><span class="nt">&gt;</span>Dark outline<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"button clear"</span><span class="nt">&gt;</span>Clear<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"button primary icon"</span><span class="nt">&gt;</span>New file 
+  <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"https://icongr.am/feather/file.svg?size=16&amp;amp;color=ffffff"</span> <span class="na">alt=</span><span class="s">"icon"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button icon-only"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"https://icongr.am/feather/search.svg?size=24"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/button&gt;</span></code></pre></figure>
+    </div>
+  </div>
+        </section>
+    
