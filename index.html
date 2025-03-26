@@ -443,5 +443,211 @@
 <span class="nt">&lt;/button&gt;</span></code></pre></figure>
     </div>
   </div>
-        </section>
-    
+  </section>
+
+      <br>
+      <section id="nav">
+  <h4>Nav</h4>
+  <p>A responsive horizontal nav bar that can contain links, tabs, buttons, icons, and a logo.</p>
+  <p>The <code>.nav</code> container can have 3 parts:</p>
+  <ul>
+    <li><code>.nav-left</code></li>
+    <li><code>.nav-center</code></li>
+    <li><code>.nav-right</code></li>
+  </ul>
+  <p>Each of these containers can have a <code>&lt;a&gt;</code> ,<code>.button</code>, <code>.tabs</code>, <code>.brand</code>. Add a <code>active</code> class to show a active link.</p>
+  <br>
+  <nav class="nav">
+    <div class="nav-left">
+      <a class="brand" href="#">Brand</a>
+      <div class="tabs">
+        <a href="#!">Link 1</a>
+        <a href="#!" class="active">Link 2</a>
+      </div>
+    </div>
+    <div class="nav-right">
+      <a href="#!" class="button outline">Button</a>
+    </div>
+  </nav>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"nav"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"nav-left"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"brand"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Brand<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tabs"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a&gt;</span>Link 1<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"active"</span><span class="nt">&gt;</span>Link 2<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"nav-right"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"button outline"</span><span class="nt">&gt;</span>Button<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/nav&gt;</span></code></pre></figure>
+  <hr>
+  <nav class="nav">
+    <div class="nav-left">
+      <a href="#!" class="active">Link 1</a>
+      <a href="#!">Link 2</a>
+    </div>
+    <div class="nav-center">
+      <a class="brand" href="#">
+        <img src="./logo.svg" alt="">
+      </a>
+    </div>
+    <div class="nav-right">
+        <a href="#!">Link 3</a>
+        <a href="#!">Link 4</a>
+    </div>
+  </nav>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"nav"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"nav-left"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"active"</span><span class="nt">&gt;</span>Link 1<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;a&gt;</span>Link 2<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"nav-center"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"brand"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"logo.svg"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"nav-right"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a&gt;</span>Link 3<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;a&gt;</span>Link 4<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/nav&gt;</span></code></pre></figure>
+  <hr>
+  <p>You can also have tabs without a nav bar. Simply make a <code>.tabs</code> container and add links in it. To make tabs go full width just add a <code>is-full</code> class</p>
+  <br>
+  <nav class="tabs">
+    <a href="#!">Tab 1</a>
+    <a href="#!">Tab 2</a>
+    <a href="#!" class="active">Tab 3</a>
+  </nav>
+  <br>
+  <nav class="tabs is-full">
+    <a href="#!">Tab 1</a>
+    <a href="#!" class="active">Tab 2</a>
+    <a href="#!">Tab 3</a>
+  </nav>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"tabs"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;a&gt;</span>Tab 1<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;a&gt;</span>Tab 2<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"active"</span><span class="nt">&gt;</span>Tab 3<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/nav&gt;</span>
+<span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"tabs is-full"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;a&gt;</span>Tab 1<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"active"</span><span class="nt">&gt;</span>Tab 2<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;a&gt;</span>Tab 3<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/nav&gt;</span></code></pre></figure>
+</section>
+
+      <br>
+      <section id="card">
+  <h4>Card</h4>
+  <p>The <code>.card</code> element is simply a container with a shadow, a border, a radius, and some padding.</p>
+  <p>You can add a simple <code>header</code> element with a heading tag in it to add a heading to the card.</p>
+  <div class="row is-center">
+    <div class="col">
+      <div class="card">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque cumque velit id.</p>
+      </div>
+    </div>
+    <div class="col">
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p&gt;</span>Lorem ipsum ... nostrud exercit.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+    </div>
+  </div>
+  <hr>
+  <div class="row is-center">
+    <div class="col-6">
+      <div class="card">
+        <header>
+          <h4>Card title</h4>
+        </header>
+        <p>A nisi ullam impedit molestiae, sapiente id, numquam accusantium eius cum, iste eum iusto blanditiis doloribus beatae. Molestias iste explicabo libero nam, voluptas harum ipsum quod velit enim. Quae, cupiditate?</p>
+        <footer class="is-right">
+          <a href="#!" class="button primary">Submit</a>
+          <a href="#!" class="button">Cancel</a>
+        </footer>
+      </div>
+    </div>
+  </div>
+  <div class="row is-center">
+    <div class="col">
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;header&gt;</span>
+    <span class="nt">&lt;h4&gt;</span>Card title<span class="nt">&lt;/h4&gt;</span>
+  <span class="nt">&lt;/header&gt;</span>
+  <span class="nt">&lt;p&gt;</span>A nisi ullam ... cupiditate?<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;footer</span> <span class="na">class=</span><span class="s">"is-right"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"button primary"</span><span class="nt">&gt;</span>Submit<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"button"</span><span class="nt">&gt;</span>Cancel<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/footer&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+    </div>
+  </div>
+</section>
+
+      <br>
+      <section id="tag">
+  <h4>Tag</h4>
+  <p>Labels to insert anywhere! They come in 3 sizes — small, medium, large</p>
+  <p><span class="tag">One</span><span class="tag">Two</span><span class="tag">Three</span><span class="tag is-small">Small</span><span class="tag is-large">Large</span></p>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;p&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"tag"</span><span class="nt">&gt;</span>One<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"tag"</span><span class="nt">&gt;</span>Two<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"tag"</span><span class="nt">&gt;</span>Three<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"tag is-small"</span><span class="nt">&gt;</span>Small<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"tag is-large"</span><span class="nt">&gt;</span>Large<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/p&gt;</span></code></pre></figure>
+</section>
+      <br>
+      <section id="utilities">
+  <h4>Utilities</h4>
+  <p>
+    You can apply these helper classes to almost any element, in order to alter
+    its style.
+  </p>
+  <ul>
+    <li>
+      <code>text-primary</code> - <span class="text-primary">Primary text</span>
+    </li>
+    <li>
+      <code>text-light</code> - <span class="text-light">Light text</span>
+    </li>
+    <li>
+      <code>text-white</code> -
+      <span class="bg-primary text-white">White text</span>
+    </li>
+    <li><code>text-dark</code> - <span class="text-dark">Dark text</span></li>
+    <li><code>text-grey</code> - <span class="text-grey">Grey text</span></li>
+    <li>
+      <code>text-error</code> - <span class="text-error">Error text</span>
+    </li>
+    <li>
+      <code>text-success</code> - <span class="text-success">Success text</span>
+    </li>
+    <li>
+      <code>bg-primary</code> -
+      <span class="bg-primary">primary background</span>
+    </li>
+    <li>
+      <code>bg-light</code> - <span class="bg-light">Light background</span>
+    </li>
+    <li><code>bg-dark</code> - <span class="bg-dark">Dark background</span></li>
+    <li><code>bg-grey</code> - <span class="bg-grey">Grey background</span></li>
+    <li>
+      <code>bg-error</code> - <span class="bg-error">Error background</span>
+    </li>
+    <li>
+      <code>bg-success</code> -
+      <span class="bg-success">Success background</span>
+    </li>
+    <li>
+      <code>bd-primary</code> - <span class="bd-primary">primary border</span>
+    </li>
+    <li><code>bd-light</code> - <span class="bd-light">Light border</span></li>
+    <li><code>bd-dark</code> - <span class="bd-dark">Dark border</span></li>
+    <li><code>bd-grey</code> - <span class="bd-grey">Grey border</span></li>
+    <li><code>bd-error</code> - <span class="bd-error">Error border</span></li>
+    <li>
+      <code>bd-success</code> - <span class="bd-success">Success border</span>
+                                                                                                      </li>
